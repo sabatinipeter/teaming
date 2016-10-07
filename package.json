@@ -1,0 +1,22 @@
+{
+  "name": "teaming",
+  "version": "0.0.1",
+  "description": "This example is so pippy hot.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node web.js"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "peter-sabatini, ben-tidman",
+  "license": "dollabills",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }
+}
