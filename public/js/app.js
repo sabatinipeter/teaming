@@ -1,19 +1,44 @@
 var teaming = {};
 
 teaming.teams = [
-    { 
+    {
         "name":"Route One Desking",
-        "roles":["DL", "Dev", "Dev", "Dev"] 
+        "roles":["DL", "Dev", "Dev", "Dev"]
     },
-    { "name":"Route One Menu" },
-    { "name":"ACSI" },
-    { "name":"JIS" },
-    { "name":"Ford - GForce" },
-    { "name":"Ford - FMCC" },
-    { "name":"Ford - Agile COE" },
-    { "name":"Ford - Falcon" },
-    { "name":"Ford - PDO" }
-];
+    {
+        "name":"Route One Menu",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"ACSI",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"JIS",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - GForce",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - FMCC",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - Agile COE",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+
+    },
+    {
+        "name":"Ford - Falcon",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - PDO",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    }
+    ];
 
 teaming.people = [{
       "name": "Matt Staffeld",
@@ -250,37 +275,27 @@ $(function() {
 
     $("a.edit-person").click(function () {
       var personModal = $("#personModal");
-      // console.log(personModal);
-      //
-      // console.log($(this).closest("div.card"));
-      //
-      // console.log($(this).closest("div.card").find(".person-name").html());
-      // console.log($(this).closest("div.card").find(".person-position").html());
-      // console.log($(this).closest("div.card").find(".person-notes").html());
-      //
-      // console.log($(this).closest("div.card").attr('id'));
+      var card = $(this).closest("div.card");
 
-      $('#name2', personModal).val($(this).closest("div.card").find(".person-name").html());
-      $('#title', personModal).val($(this).closest("div.card").find(".person-position").html());
-      $('#notes', personModal).val($(this).closest("div.card").find(".person-notes").html());
+      $('#personId', personModal).val(card.attr('id'));
+      $('#name2', personModal).val(card.find(".person-name").html());
+      $('#title', personModal).val(card.find(".person-position").html());
+      $('#notes', personModal).val(card.find(".person-notes").html());
 
       $('#myModalLabel2', personModal).html("Edit Person");
       $('#addPersonButton', personModal).html("Save");
-
-      // personModal.modal({ show: true });
     });
 
     $("a.add-person").click(function () {
       var personModal = $("#personModal");
 
+      $('#personId', personModal).val("");
       $('#name2', personModal).val("");
       $('#title', personModal).val("");
       $('#notes', personModal).val("");
 
       $('#myModalLabel2', personModal).html("Add Person");
       $('#addPersonButton', personModal).html("Add Person");
-
-      // personModal.modal({ show: true });
     });
 
     $('#addPersonButton').click(function() {
@@ -288,14 +303,24 @@ $(function() {
       var person_title = $('#title').val();
       var notes = $('#notes').val();
 
-      var person = {
-          "name": person_name,
-          "image": "images/new.jpg",
-          "position": person_title,
-          "notes":notes
-      };
+      var person_id = $('#personId').val();
 
-      teaming.addNewPerson(person);
+      if(person_id != "") {
+        var card = $('#' + person_id);
+        card.find(".person-name").html(person_name);
+        card.find(".person-position").html(person_title);
+        card.find(".person-notes").html(notes);
+      } else {
+        var person = {
+            "name": person_name,
+            "image": "images/new.jpg",
+            "position": person_title,
+            "notes":notes
+        };
+
+        teaming.addNewPerson(person);
+      }
+
       $('#closeAddPersonModal').trigger('click');
     });
 
