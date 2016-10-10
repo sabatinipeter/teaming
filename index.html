@@ -86,34 +86,17 @@
 
     <!-- Page Content -->
     <div class="container-fluid">
-        <div class="affix">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Bench</h3>
-            </div>
-            <div id="div2" class="panel-body bench">
-              <div id="peopleDiv" class="people-container" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
-            </div>
+      <div class="affix">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Bench</h3>
+          </div>
+          <div id="div2" class="panel-body bench">
+            <div id="peopleDiv" class="people-container" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
           </div>
         </div>
-        <div class="team-div" id="teamDiv"></div>
-
-      <script>
-        function allowDrop(ev) {
-          ev.preventDefault();
-        }
-
-        function drag(ev) {
-          ev.dataTransfer.setData("text/plain", ev.target.id);
-        }
-
-        function drop(ev, el) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          el.appendChild(document.getElementById(data));
-        }
-      </script>
-
+      </div>
+      <div class="team-div" id="teamDiv"></div>
     </div>
 
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
