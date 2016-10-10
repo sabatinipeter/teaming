@@ -1,19 +1,44 @@
 var teaming = {};
 
 teaming.teams = [
-    { 
+    {
         "name":"Route One Desking",
-        "roles":["DL", "Dev", "Dev", "Dev"] 
+        "roles":["DL", "Dev", "Dev", "Dev"]
     },
-    { "name":"Route One Menu" },
-    { "name":"ACSI" },
-    { "name":"JIS" },
-    { "name":"Ford - GForce" },
-    { "name":"Ford - FMCC" },
-    { "name":"Ford - Agile COE" },
-    { "name":"Ford - Falcon" },
-    { "name":"Ford - PDO" }
-];
+    {
+        "name":"Route One Menu",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"ACSI",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"JIS",
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - GForce"
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - FMCC"
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - Agile COE"
+        "roles":["DL", "Dev", "Dev", "Dev"]
+
+    },
+    {
+        "name":"Ford - Falcon"
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    },
+    {
+        "name":"Ford - PDO"
+        "roles":["DL", "Dev", "Dev", "Dev"]
+    }
+    ];
 
 teaming.people = [{
       "name": "Matt Staffeld",
