@@ -33,13 +33,13 @@
       <div class="team">
         <div class="panel panel-info" >
             <div class="panel-heading">
-              <h3 class="panel-title">{{ teamName }}</h3>
+              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal">{{ teamName }}</a></h3>
             </div>
             <div id="newTeamDiv" class="team-container panel-body" >
               {{#roles}}
               <div class="role-container">
                 <div class="role" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
-                <label style="width:100%; text-align:center;">{{.}}</label>
+                <label class="team-role">{{.}}</label>
               </div>
               {{/roles}}
             </div>
@@ -74,7 +74,7 @@
                 </li>
                 <li>
                   <p class="navbar-btn">
-                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Team</a>
+                    <a href="#" class="btn btn-default add-team" data-toggle="modal" data-target="#teamModal">Add Team</a>
                   </p>
                 </li>
                 <li>
@@ -152,7 +152,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -165,7 +165,11 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" value="New Pillar Team" readonly>
+                <input type="text" class="form-control" id="name" value="">
+              </div>
+              <div class="form-group">
+                <label for="roles">Roles</label>
+                <input type="text" class="form-control" id="roles" placeholder="DL, Dev, etc...">
               </div>
             </form>
           </div>

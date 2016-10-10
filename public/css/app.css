@@ -98,6 +98,11 @@ body {
   margin-left:15px;
 }
 
+.team-role{
+  width:100%; 
+  text-align:center;
+}
+
 .team-container {
   min-height: 274px;
 }

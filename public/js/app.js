@@ -302,7 +302,33 @@ $(function() {
     $('#addTeamButton').click(function() {
         teaming.addNewTeam();
         $('#closeAddTeamModal').trigger('click');
+        
     })
+
+    $("a.add-team").click(function () {
+      var teamModal = $("#teamModal");
+
+      $('#name', teamModal).val("");
+      $('#roles', teamModal).val("");
+
+      $('#myModalLabel', teamModal).html("Add Team");
+      $('#addTeamButton', teamModal).html("Add Team");
+    });
+
+    $("a.edit-team").click(function () {
+        var teamModal = $("#teamModal");
+
+        $('#name', teamModal).val($(this).closest("div.team").find(".team-name").html());
+        var roles = "";
+        var rolesHtml = $(this).closest("div.team").find(".team-role");
+
+        $(rolesHtml).each(function(index, item){roles += $(item).html() + ", " })
+        $('#roles', teamModal).val(roles);
+        
+        $('#myModalLabel', teamModal).html("Edit Team");
+        $('#addTeamButton', teamModal).html("Save");
+
+    });
 });
 
 function allowDrop(ev) {
