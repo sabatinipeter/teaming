@@ -244,6 +244,42 @@ teaming.renderTeamTemplate = function(team, id) {
 $(function() {
     teaming.renderTeams();
     teaming.renderPeople();
+
+    $("a.edit-person").click(function () {
+      var personModal = $("#personModal");
+      // console.log(personModal);
+      //
+      // console.log($(this).closest("div.card"));
+      //
+      // console.log($(this).closest("div.card").find(".person-name").html());
+      // console.log($(this).closest("div.card").find(".person-position").html());
+      // console.log($(this).closest("div.card").find(".person-notes").html());
+      //
+      // console.log($(this).closest("div.card").attr('id'));
+
+      $('#name2', personModal).val($(this).closest("div.card").find(".person-name").html());
+      $('#title', personModal).val($(this).closest("div.card").find(".person-position").html());
+      $('#notes', personModal).val($(this).closest("div.card").find(".person-notes").html());
+
+      $('#myModalLabel2', personModal).html("Edit Person");
+      $('#addPersonButton', personModal).html("Save");
+
+      // personModal.modal({ show: true });
+    });
+
+    $("a.add-person").click(function () {
+      var personModal = $("#personModal");
+
+      $('#name2', personModal).val("");
+      $('#title', personModal).val("");
+      $('#notes', personModal).val("");
+
+      $('#myModalLabel2', personModal).html("Add Person");
+      $('#addPersonButton', personModal).html("Add Person");
+
+      // personModal.modal({ show: true });
+    });
+
     $('#addPersonButton').click(function() {
       var person_name = $('#name2').val();
       var person_title = $('#title').val();

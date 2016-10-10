@@ -21,10 +21,10 @@
           <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
           <div class="caption">
               <h5 class="textFilter-match">
-                <a class="dark-grey" href="#" data-toggle="modal" data-target="#myModal2">{{ name }}</a><br>
-                <small class="textFilter-match dark-grey">{{ position }}</small>
+                <a class="person-name dark-grey edit-person" href="#" data-toggle="modal" data-target="#personModal">{{ name }}</a><br>
+                <small class="person-position textFilter-match dark-grey">{{ position }}</small>
               </h5>
-              <span class="textFilter-match hide">{{ notes }}</span>
+              <span class="person-notes textFilter-match hide">{{ notes }}</span>
           </div>
         </div>
     </script>
@@ -73,7 +73,7 @@
                 </li>
                 <li>
                   <p class="navbar-btn">
-                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Add Person</a>
+                    <a href="#" class="btn btn-default add-person" data-toggle="modal" data-target="#personModal">Add Person</a>
                   </p>
                 </li>
 
@@ -99,7 +99,7 @@
       <div class="team-div" id="teamDiv"></div>
     </div>
 
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="personModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
