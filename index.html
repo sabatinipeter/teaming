@@ -35,7 +35,13 @@
             <div class="panel-heading">
               <h3 class="panel-title">{{ teamName }}</h3>
             </div>
-            <div id="newTeamDiv" class="team-container panel-body" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+            <div id="newTeamDiv" class="team-container panel-body" >
+              {{#roles}}
+              <div class="role-container">
+                <div class="role" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
+                <label style="width:100%; text-align:center;">{{.}}</label>
+              </div>
+              {{/roles}}
             </div>
           </div>
         </div>

@@ -1,7 +1,10 @@
 var teaming = {};
 
 teaming.teams = [
-    { "name":"Route One Desking" },
+    { 
+        "name":"Route One Desking",
+        "roles":["DL", "Dev", "Dev", "Dev"] 
+    },
     { "name":"Route One Menu" },
     { "name":"ACSI" },
     { "name":"JIS" },
@@ -63,7 +66,7 @@ teaming.people = [{
       "position": "Software Craftsman"
   },{
       "name": "Christopher Bibbs",
-      "image": "images/Christopherbibbs.png",
+      "image": "images/christopherbibbs.png",
       "position": "Delivery Lead"
   },{
       "name": "Clay Dowling",
@@ -134,7 +137,7 @@ teaming.people = [{
       "position": "Experience Architect"
   },{
       "name": "Mark Henke",
-      "image": "images/markhenke photo.jpg",
+      "image": "images/markhenke.jpg",
       "position": "Software Journeyman",
       "notes": "beard"
   },{
@@ -183,7 +186,7 @@ teaming.people = [{
       "position": "Software Craftsman"
   },{
       "name": "Tom Puricelli",
-      "image": "images/tompuricelli pic.jpg",
+      "image": "images/tompuricelli.jpg",
       "position": "Delivery Lead"
   },{
       "name": "Will Gibbins",
@@ -238,7 +241,7 @@ teaming.renderTeamTemplate = function(team, id) {
     var template = $('#teamTemplate').html();
     Mustache.parse(template);
 
-    return Mustache.render(template, {id: "team" + id, teamName: team.name});
+    return Mustache.render(template, {id: "team" + id, teamName: team.name, roles: team.roles});
 };
 
 $(function() {
@@ -313,5 +316,7 @@ function drag(ev) {
 function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  el.appendChild(document.getElementById(data));
+  if($(el).attr('id') == "peopleDiv" || el.children.length == 0){
+    el.appendChild(document.getElementById(data));
+  }
 }

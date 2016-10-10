@@ -65,6 +65,20 @@ body {
   height: 200px;
 }
 
+.role {
+  border: 1px dashed #18bc9c;
+  border-radius: 4px;
+  line-height: 1.42857;
+  margin: 4px;
+  transition: border 0.2s ease-in-out 0s;
+  width: 170px;
+  height: 210px;
+}
+
+.role-container {
+  display:inline-block;
+}
+
 .profile-img{
   width: 100px !important;
   height: 100px !important;
@@ -85,7 +99,7 @@ body {
 }
 
 .team-container {
-  min-height: 238px;
+  min-height: 274px;
 }
 
 .btn-glyphicon {
