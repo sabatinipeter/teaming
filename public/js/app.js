@@ -124,7 +124,7 @@ teaming.people = [{
       "position": "Delivery Lead"
   },{
       "name": "Gabe Ilko",
-      "image": "images/gabeilko.jpg",
+      "image": "images/gabeIlko.jpg",
       "position": "Software Craftsman"
   },{
       "name": "Jeeva Adarahah",
