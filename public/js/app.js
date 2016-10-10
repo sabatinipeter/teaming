@@ -199,8 +199,8 @@ teaming.newPerson = {
     "position": "Software Journeyman"
 };
 
-teaming.addNewPerson = function() {
-    $('#peopleDiv').append(teaming.renderPersonTemplate(teaming.newPerson, 'New'));
+teaming.addNewPerson = function(person) {
+    $('#peopleDiv').append(teaming.renderPersonTemplate(person, 'New'));
 };
 
 teaming.addNewTeam = function() {
@@ -245,8 +245,19 @@ $(function() {
     teaming.renderTeams();
     teaming.renderPeople();
     $('#addPersonButton').click(function() {
-        teaming.addNewPerson();
-        $('#closeAddPersonModal').trigger('click');
+      var person_name = $('#name2').val();
+      var person_title = $('#title').val();
+      var notes = $('#notes').val();
+
+      var person = {
+          "name": person_name,
+          "image": "images/new.jpg",
+          "position": person_title,
+          "notes":notes
+      };
+
+      teaming.addNewPerson(person);
+      $('#closeAddPersonModal').trigger('click');
     });
 
     $('#addTeamButton').click(function() {
