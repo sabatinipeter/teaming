@@ -1,7 +1,10 @@
 var teaming = {};
 
 teaming.teams = [
-    { "name":"Route One Desking" },
+    { 
+        "name":"Route One Desking",
+        "roles":["DL", "Dev", "Dev", "Dev"] 
+    },
     { "name":"Route One Menu" },
     { "name":"ACSI" },
     { "name":"JIS" },
@@ -238,7 +241,7 @@ teaming.renderTeamTemplate = function(team, id) {
     var template = $('#teamTemplate').html();
     Mustache.parse(template);
 
-    return Mustache.render(template, {id: "team" + id, teamName: team.name});
+    return Mustache.render(template, {id: "team" + id, teamName: team.name, roles: team.roles});
 };
 
 $(function() {
@@ -266,5 +269,7 @@ function drag(ev) {
 function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  el.appendChild(document.getElementById(data));
+  if($(el).attr('id') == "peopleDiv" || el.children.length == 0){
+    el.appendChild(document.getElementById(data));
+  }
 }
