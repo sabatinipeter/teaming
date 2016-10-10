@@ -21,8 +21,9 @@
         <div id="{{ id }}" class="text-center card textFilter-target " draggable="true" ondragstart="drag(event)">
           <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
           <div class="caption">
-              <h5 class="textFilter-match">{{ name }}<br>
-                  <small class="textFilter-match">{{ position }}</small>
+              <h5 class="textFilter-match">
+                <a href="#" data-toggle="modal" data-target="#myModal2" style="color:darkslategray;">{{ name }}</a><br>
+                <small class="textFilter-match" style="color:darkslategray;">{{ position }}</small>
               </h5>
               <span class="textFilter-match" style="display:none">{{ notes }}</span>
           </div>
@@ -35,7 +36,7 @@
             <div class="panel-heading">
               <h3 class="panel-title">{{ teamName }}</h3>
             </div>
-            <div id="newTeamDiv" class="panel-body" style="min-height:238px; display:flex;" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="min-height: 200px;">
+            <div id="newTeamDiv" class="panel-body" style="min-height:238px;" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="min-height: 200px;">
             </div>
           </div>
         </div>
@@ -94,14 +95,14 @@
 
             </div>
 
-            <div id="div2" class="panel-body" style="min-height: 500px; max-height:1000px; overflow:scroll;" >
-              <div id="peopleDiv" style="display:flex; flex-flow:row wrap;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+            <div id="div2" class="panel-body" style="height: 500px; overflow:scroll;" >
+              <div id="peopleDiv" style="display:flex; height:100%; flex-flow:row wrap;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
               </div>
             </div>
 
         </div>
         </div>
-        <div class="" id="teamDiv" style="width:100%; padding-left:386px;">
+        <div class="" id="teamDiv" style="width:100%; padding-left:386px; padding-right:15px;">
 
       </div>
 
