@@ -63,7 +63,7 @@ teaming.people = [{
       "position": "Software Craftsman"
   },{
       "name": "Christopher Bibbs",
-      "image": "images/Christopherbibbs.png",
+      "image": "images/christopherbibbs.png",
       "position": "Delivery Lead"
   },{
       "name": "Clay Dowling",
@@ -134,7 +134,7 @@ teaming.people = [{
       "position": "Experience Architect"
   },{
       "name": "Mark Henke",
-      "image": "images/markhenke photo.jpg",
+      "image": "images/markhenke.jpg",
       "position": "Software Journeyman",
       "notes": "beard"
   },{
@@ -183,7 +183,7 @@ teaming.people = [{
       "position": "Software Craftsman"
   },{
       "name": "Tom Puricelli",
-      "image": "images/tompuricelli pic.jpg",
+      "image": "images/tompuricelli.jpg",
       "position": "Delivery Lead"
   },{
       "name": "Will Gibbins",
