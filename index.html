@@ -21,7 +21,7 @@
           <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
           <div class="caption">
               <h5 class="textFilter-match">
-                <a class="person-name dark-grey edit-person" href="#" data-toggle="modal" data-target="#personModal">{{ name }}</a><br>
+                <a class="person-name dark-grey edit-person" href="#" data-toggle="modal" data-target="#personModal" onclick="javascript:editPerson('{{ id }}')">{{ name }}</a><br>
                 <small class="person-position textFilter-match dark-grey">{{ position }}</small>
               </h5>
               <span class="person-notes textFilter-match hide">{{ notes }}</span>
@@ -30,10 +30,10 @@
     </script>
 
     <script id="teamTemplate" type="x-tmpl-mustache">
-      <div class="team">
+      <div class="team" id="{{ id }}" >
         <div class="panel panel-info" >
             <div class="panel-heading">
-              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal">{{ teamName }}</a></h3>
+              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="javascript:editTeam('{{ id }}')">{{ teamName }}</a></h3>
             </div>
             <div id="newTeamDiv" class="team-container panel-body" >
               {{#roles}}
@@ -165,6 +165,8 @@
           </div>
           <div class="modal-body">
             <form>
+              <input type="hidden" id="teamId">
+
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" value="">
