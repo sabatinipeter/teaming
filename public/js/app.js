@@ -1,7 +1,10 @@
 var teaming = {};
 
 teaming.teams = [
-    { "name":"Route One Desking" },
+    { 
+        "name":"Route One Desking",
+        "roles":["DL", "Dev", "Dev", "Dev"] 
+    },
     { "name":"Route One Menu" },
     { "name":"ACSI" },
     { "name":"JIS" },
@@ -199,8 +202,8 @@ teaming.newPerson = {
     "position": "Software Journeyman"
 };
 
-teaming.addNewPerson = function() {
-    $('#peopleDiv').append(teaming.renderPersonTemplate(teaming.newPerson, 'New'));
+teaming.addNewPerson = function(person) {
+    $('#peopleDiv').append(teaming.renderPersonTemplate(person, 'New'));
 };
 
 teaming.addNewTeam = function() {
@@ -238,15 +241,26 @@ teaming.renderTeamTemplate = function(team, id) {
     var template = $('#teamTemplate').html();
     Mustache.parse(template);
 
-    return Mustache.render(template, {id: "team" + id, teamName: team.name});
+    return Mustache.render(template, {id: "team" + id, teamName: team.name, roles: team.roles});
 };
 
 $(function() {
     teaming.renderTeams();
     teaming.renderPeople();
     $('#addPersonButton').click(function() {
-        teaming.addNewPerson();
-        $('#closeAddPersonModal').trigger('click');
+      var person_name = $('#name2').val();
+      var person_title = $('#title').val();
+      var notes = $('#notes').val();
+
+      var person = {
+          "name": person_name,
+          "image": "images/new.jpg",
+          "position": person_title,
+          "notes":notes
+      };
+
+      teaming.addNewPerson(person);
+      $('#closeAddPersonModal').trigger('click');
     });
 
     $('#addTeamButton').click(function() {
@@ -266,5 +280,7 @@ function drag(ev) {
 function drop(ev, el) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  el.appendChild(document.getElementById(data));
+  if($(el).attr('id') == "peopleDiv" || el.children.length == 0){
+    el.appendChild(document.getElementById(data));
+  }
 }

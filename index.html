@@ -35,7 +35,13 @@
             <div class="panel-heading">
               <h3 class="panel-title">{{ teamName }}</h3>
             </div>
-            <div id="newTeamDiv" class="team-container panel-body" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+            <div id="newTeamDiv" class="team-container panel-body" >
+              {{#roles}}
+              <div class="role-container">
+                <div class="role" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
+                <label style="width:100%; text-align:center;">{{.}}</label>
+              </div>
+              {{/roles}}
             </div>
           </div>
         </div>
@@ -109,19 +115,28 @@
             <h4 class="modal-title" id="myModalLabel2">Add Person</h4>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="myForm">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name2" value="New Pillarite" readonly>
+                <input type="text" class="form-control" id="name2" placeholder="Name" required="true">
               </div>
 
               <div class="form-group">
                 <label for="title">Position</label>
-                <input type="text" class="form-control" id="title" value="Software Journeyman" readonly>
+                <select id="title" class="form-control" placeholder="Position" required="true">
+                  <option value="Software Apprentice">Software Apprentice</option>
+                  <option value="Software Journeyman">Software Journeyman</option>
+                  <option value="Software Craftsman">Software Craftsman</option>
+                  <option value="Delivery Lead">Delivery Lead</option>
+                  <option value="Delivery Manager">Delivery Manager</option>
+                  <option value="Experience Architect">Experience Architect</option>
+                  <option value="Delivery Lead/Experience Architect">Delivery Lead/Experience Architect</option>
+                </select>
               </div>
+
               <div class="form-group">
                 <label for="notes">Notes</label>
-                <textarea  class="form-control" id="notes" readonly>Java c# Javascript</textarea>
+                <textarea class="form-control" id="notes"></textarea>
               </div>
 
               <div class="form-group">
