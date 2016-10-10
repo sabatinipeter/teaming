@@ -17,25 +17,25 @@
     <link href="css/app.css" rel="stylesheet">
 
     <script id="personTemplate" type="x-tmpl-mustache">
-        <div id="{{ id }}" class="text-center card textFilter-target " draggable="true" ondragstart="drag(event)">
+        <div id="{{ id }}" class="card text-center textFilter-target " draggable="true" ondragstart="drag(event)">
           <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
           <div class="caption">
               <h5 class="textFilter-match">
-                <a href="#" data-toggle="modal" data-target="#myModal2" style="color:darkslategray;">{{ name }}</a><br>
-                <small class="textFilter-match" style="color:darkslategray;">{{ position }}</small>
+                <a class="dark-grey" href="#" data-toggle="modal" data-target="#myModal2">{{ name }}</a><br>
+                <small class="textFilter-match dark-grey">{{ position }}</small>
               </h5>
-              <span class="textFilter-match" style="display:none">{{ notes }}</span>
+              <span class="textFilter-match hide">{{ notes }}</span>
           </div>
         </div>
     </script>
 
     <script id="teamTemplate" type="x-tmpl-mustache">
-      <div style="min-width:200px; float:left; margin-left:15px;">
+      <div class="team">
         <div class="panel panel-info" >
             <div class="panel-heading">
               <h3 class="panel-title">{{ teamName }}</h3>
             </div>
-            <div id="newTeamDiv" class="panel-body" style="min-height:238px;" ondrop="drop(event, this)" ondragover="allowDrop(event)" style="min-height: 200px;">
+            <div id="newTeamDiv" class="team-container panel-body" ondrop="drop(event, this)" ondragover="allowDrop(event)">
             </div>
           </div>
         </div>
@@ -67,12 +67,12 @@
                   </div>
                 </li>
                 <li>
-                  <p class="navbar-btn" style="margin-right:15px;">
+                  <p class="navbar-btn">
                     <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Team</a>
                   </p>
                 </li>
                 <li>
-                  <p class="navbar-btn" style="margin-right:15px;" >
+                  <p class="navbar-btn">
                     <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Add Person</a>
                   </p>
                 </li>
@@ -86,37 +86,31 @@
 
     <!-- Page Content -->
     <div class="container-fluid">
-        <div class="affix" style="width:386px;">
+        <div class="affix">
           <div class="panel panel-success">
             <div class="panel-heading">
-                    <h3 class="panel-title">Bench</h3>
-
+              <h3 class="panel-title">Bench</h3>
             </div>
-
-            <div id="div2" class="panel-body" style="height: 500px; overflow:scroll;" >
-              <div id="peopleDiv" style="display:flex; height:100%; flex-flow:row wrap;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-              </div>
+            <div id="div2" class="panel-body bench">
+              <div id="peopleDiv" class="people-container" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
             </div>
-
+          </div>
         </div>
-        </div>
-        <div class="" id="teamDiv" style="width:100%; padding-left:386px; padding-right:15px;">
-
-      </div>
+        <div class="team-div" id="teamDiv"></div>
 
       <script>
-      function allowDrop(ev) {
+        function allowDrop(ev) {
           ev.preventDefault();
-      }
+        }
 
-      function drag(ev) {
+        function drag(ev) {
           ev.dataTransfer.setData("text/plain", ev.target.id);
-      }
+        }
 
-      function drop(ev, el) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        el.appendChild(document.getElementById(data));
+        function drop(ev, el) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          el.appendChild(document.getElementById(data));
         }
       </script>
 
