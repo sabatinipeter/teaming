@@ -18,24 +18,24 @@ teaming.teams = [
         "roles":["DL", "Dev", "Dev", "Dev"]
     },
     {
-        "name":"Ford - GForce"
+        "name":"Ford - GForce",
         "roles":["DL", "Dev", "Dev", "Dev"]
     },
     {
-        "name":"Ford - FMCC"
+        "name":"Ford - FMCC",
         "roles":["DL", "Dev", "Dev", "Dev"]
     },
     {
-        "name":"Ford - Agile COE"
+        "name":"Ford - Agile COE",
         "roles":["DL", "Dev", "Dev", "Dev"]
 
     },
     {
-        "name":"Ford - Falcon"
+        "name":"Ford - Falcon",
         "roles":["DL", "Dev", "Dev", "Dev"]
     },
     {
-        "name":"Ford - PDO"
+        "name":"Ford - PDO",
         "roles":["DL", "Dev", "Dev", "Dev"]
     }
     ];
