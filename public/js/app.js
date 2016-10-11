@@ -18,16 +18,16 @@ teaming.teams = [
         "roles":["DM", "DL", "DL", "TL", "Dev", "Dev", "Dev", "Dev", "Dev", "Dev", "Dev", "XD"]
     },
     {
-        "name":"Ford - GForce",
-        "roles":["DL", "Dev", "Dev", "Dev"]
+        "name":"Ford - FMCC",
+        "roles":["DM", "DL", "Dev", "Dev", "Dev", "1/2 Dev"]
     },
     {
-        "name":"Ford - FMCC",
-        "roles":["DL", "Dev", "Dev", "Dev"]
+        "name":"Ford - GForce",
+        "roles":["DM", "DL", "TL", "BA", "Dev", "Dev", "Dev", "1/2 Dev", "1/2 Dev"]
     },
     {
         "name":"Ford - Agile COE",
-        "roles":["DL", "Dev", "Dev", "Dev"]
+        "roles":["Other", "Other", "Other"]
 
     },
     {
@@ -36,7 +36,7 @@ teaming.teams = [
     },
     {
         "name":"Ford - PDO",
-        "roles":["DL", "Dev", "Dev", "Dev"]
+        "roles":["Other", "Other"]
     }
     ];
 
@@ -293,7 +293,7 @@ function editTeam(id) {
     $(rolesHtml).each(function(index, item){roles += $(item).html() + "," })
     roles = roles.substr(0, roles.length - 1);
     $('#roles', teamModal).val(roles);
-    
+
     $('#myModalLabel', teamModal).html("Edit Team");
     $('#addTeamButton', teamModal).html("Save");
 
@@ -359,9 +359,9 @@ $(function() {
             "roles": roles
         }
         teaming.addNewTeam(team);
-        
+
         $('#closeAddTeamModal').trigger('click');
-        
+
     })
 
     $("a.add-team").click(function () {
