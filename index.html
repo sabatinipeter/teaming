@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,23 +16,23 @@
     <link href="css/app.css" rel="stylesheet">
 
     <script id="personTemplate" type="x-tmpl-mustache">
-        <div id="{{ id }}" class="card text-center textFilter-target " draggable="true" ondragstart="drag(event)">
-          <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
-          <div class="caption">
-              <h5 class="textFilter-match">
-                <a class="person-name dark-grey edit-person" href="#" data-toggle="modal" data-target="#personModal" onclick="javascript:editPerson('{{ id }}')">{{ name }}</a><br>
-                <small class="person-position textFilter-match dark-grey">{{ position }}</small>
-              </h5>
-              <span class="person-notes textFilter-match hide">{{ notes }}</span>
-          </div>
+      <div id="{{ id }}" class="card text-center textFilter-target " draggable="true" ondragstart="drag(event)">
+        <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
+        <div class="caption">
+            <h5 class="textFilter-match">
+              <a class="person-name dark-grey edit-person" href="#" data-toggle="modal" data-target="#personModal" onclick="editPerson('{{ id }}')">{{ name }}</a><br>
+              <small class="person-position textFilter-match dark-grey">{{ position }}</small>
+            </h5>
+            <span class="person-notes textFilter-match hide">{{ notes }}</span>
         </div>
+      </div>
     </script>
 
     <script id="teamTemplate" type="x-tmpl-mustache">
       <div class="team" id="{{ id }}" >
         <div class="panel panel-info" >
             <div class="panel-heading">
-              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="javascript:editTeam('{{ id }}')">{{ teamName }}</a></h3>
+              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="editTeam('{{ id }}')">{{ teamName }}</a></h3>
             </div>
             <div id="newTeamDiv" class="team-container panel-body" >
               {{#roles}}
@@ -46,63 +45,84 @@
           </div>
         </div>
     </script>
-</head>
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-tree-deciduous white"></span> Teaming</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-
-                <li>
-                  <div class="form-group navbar-form">
-                    <input type="text" class="form-control textFilter-input" placeholder="Search">
-                  </div>
-                </li>
-                <li>
-                  <p class="navbar-btn">
-                    <a href="#" class="btn btn-default add-team" data-toggle="modal" data-target="#teamModal">Add Team</a>
-                  </p>
-                </li>
-                <li>
-                  <p class="navbar-btn">
-                    <a href="#" class="btn btn-default add-person" data-toggle="modal" data-target="#personModal">Add Person</a>
-                  </p>
-                </li>
-
-              </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <script id="scenarioTemplate" type="x-tmpl-mustache">
+      <div id="{{ id }}" >
+        <div>
+          <a href="#" onclick="restoreState('{{id}}')">Scenario {{ id }}</a>
+          <a href="#" onclick="deleteState('{{id}}')"><span class="glyphicon glyphicon-remove red"></span></a>
         </div>
-        <!-- /.container -->
-    </nav>
+    </script>
+  </head>
 
-    <!-- Page Content -->
-    <div class="container-fluid">
-      <div class="affix">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h3 class="panel-title">Bench</h3>
-          </div>
-          <div id="div2" class="panel-body bench">
-            <div id="peopleDiv" class="people-container" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
-          </div>
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-tree-deciduous white"></span> Teaming</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="form-group navbar-form">
+                <input type="text" class="form-control textFilter-input" placeholder="Search">
+              </div>
+            </li>
+            <li>
+              <p class="navbar-btn">
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#teamModal" onclick="addTeamModal()">Add Team</a>
+              </p>
+            </li>
+            <li>
+              <p class="navbar-btn">
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#personModal" onclick="addPersonModal()">Add Person</a>
+              </p>
+            </li>
+            <li>
+              <p class="navbar-btn">
+                <a href="#" class="btn btn-info" onclick="saveScenario()">Save Scenario</a>
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="team-div" id="teamDiv"></div>
+    </nav>
+
+    <div class="container-fluid" id="body">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Scenarios</h3>
+            </div>
+            <div class="panel-body">
+              <a href="#" onclick="deleteAll()">Clear Session</a>
+              <div id="scenariosContainer"></div>
+            </div>
+          </div>
+
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Bench</h3>
+            </div>
+            <div id="div2" class="panel-body bench">
+              <div id="peopleDiv" class="people-container" ondrop="drop(event, this)" ondragover="allowDrop(event)"></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+          <div class="team-div-s" id="teamDiv"></div>
+        </div>
+      </div>
     </div>
 
     <div class="modal fade" id="personModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -148,7 +168,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" id="addPersonButton" class="btn btn-primary">Add Person</button>
+            <button type="button" id="addPersonButton" class="btn btn-primary" onclick="addPerson()">Add Person</button>
           </div>
         </div>
       </div>
@@ -178,7 +198,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" id="addTeamButton" class="btn btn-primary">Add Team</button>
+            <button type="button" id="addTeamButton" class="btn btn-primary" onclick="addTeam()">Add Team</button>
           </div>
         </div>
       </div>
@@ -186,6 +206,7 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
     <!-- Underscore -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -200,6 +221,5 @@
     <script src="js/app.js"></script>
     <script src="js/filter.js"></script>
 
-</body>
-
+  </body>
 </html>

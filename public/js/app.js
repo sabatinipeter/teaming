@@ -228,11 +228,11 @@ teaming.newPerson = {
 };
 
 teaming.addNewPerson = function(person) {
-    $('#peopleDiv').append(teaming.renderPersonTemplate(person, $.guid++));
+    $('#peopleDiv').append(teaming.renderPersonTemplate(person, guid()));
 };
 
 teaming.addNewTeam = function(team) {
-    $('#teamDiv').append(teaming.renderTeamTemplate(team, $.guid++));
+    $('#teamDiv').append(teaming.renderTeamTemplate(team, guid()));
 }
 
 teaming.renderPeople = function () {
@@ -269,18 +269,25 @@ teaming.renderTeamTemplate = function(team, id) {
     return Mustache.render(template, {id: "team" + id, teamName: team.name, roles: team.roles});
 };
 
+teaming.renderScenarioTemplate = function(id) {
+    var template = $('#scenarioTemplate').html();
+    Mustache.parse(template);
+
+    return Mustache.render(template, {id: id});
+};
+
 function editPerson (id) {
-      var personModal = $("#personModal");
-      var card = $("#" + id);
+    var personModal = $("#personModal");
+    var card = $("#" + id);
 
-      $('#personId', personModal).val(id);
-      $('#name2', personModal).val(card.find(".person-name").html());
-      $('#title', personModal).val(card.find(".person-position").html());
-      $('#notes', personModal).val(card.find(".person-notes").html());
+    $('#personId', personModal).val(id);
+    $('#name2', personModal).val(card.find(".person-name").html());
+    $('#title', personModal).val(card.find(".person-position").html());
+    $('#notes', personModal).val(card.find(".person-notes").html());
 
-      $('#myModalLabel2', personModal).html("Edit Person");
-      $('#addPersonButton', personModal).html("Save");
-}
+    $('#myModalLabel2', personModal).html("Edit Person");
+    $('#addPersonButton', personModal).html("Save");
+};
 
 function editTeam(id) {
     var teamModal = $("#teamModal");
@@ -293,87 +300,95 @@ function editTeam(id) {
     $(rolesHtml).each(function(index, item){roles += $(item).html() + "," })
     roles = roles.substr(0, roles.length - 1);
     $('#roles', teamModal).val(roles);
-    
+
     $('#myModalLabel', teamModal).html("Edit Team");
     $('#addTeamButton', teamModal).html("Save");
+};
 
-}
+function addPersonModal() {
+  var personModal = $("#personModal");
 
-$(function() {
-    teaming.renderTeams();
-    teaming.renderPeople();
+  $('#personId', personModal).val("");
+  $('#name2', personModal).val("");
+  $('#title', personModal).val("");
+  $('#notes', personModal).val("");
 
-    $("a.add-person").click(function () {
-      var personModal = $("#personModal");
+  $('#myModalLabel2', personModal).html("Add Person");
+  $('#addPersonButton', personModal).html("Add Person");
+};
 
-      $('#personId', personModal).val("");
-      $('#name2', personModal).val("");
-      $('#title', personModal).val("");
-      $('#notes', personModal).val("");
+function addTeamModal() {
+  var teamModal = $("#teamModal");
 
-      $('#myModalLabel2', personModal).html("Add Person");
-      $('#addPersonButton', personModal).html("Add Person");
-    });
+  $('#name', teamModal).val("");
+  $('#roles', teamModal).val("");
+  $('#teamId', teamModal).val("");
 
-    $('#addPersonButton').click(function() {
-      var person_name = $('#name2').val();
-      var person_title = $('#title').val();
-      var notes = $('#notes').val();
+  $('#myModalLabel', teamModal).html("Add Team");
+  $('#addTeamButton', teamModal).html("Add Team");
+};
 
-      var person_id = $('#personId').val();
+function addPerson() {
+  var person_name = $('#name2').val();
+  var person_title = $('#title').val();
+  var notes = $('#notes').val();
 
-      if(person_id != "") {
-        var card = $('#' + person_id);
-        card.find(".person-name").html(person_name);
-        card.find(".person-position").html(person_title);
-        card.find(".person-notes").html(notes);
-      } else {
-        var person = {
-            "name": person_name,
-            "image": "images/new.jpg",
-            "position": person_title,
-            "notes":notes
-        };
+  var person_id = $('#personId').val();
 
-        teaming.addNewPerson(person);
-      }
+  if(person_id != "") {
+    var card = $('#' + person_id);
+    card.find(".person-name").html(person_name);
+    card.find(".person-position").html(person_title);
+    card.find(".person-notes").html(notes);
+  } else {
+    var person = {
+        "name": person_name,
+        "image": "images/new.jpg",
+        "position": person_title,
+        "notes":notes
+    };
 
-      $('#closeAddPersonModal').trigger('click');
-    });
+    teaming.addNewPerson(person);
+  }
+  var personModal = $("#personModal");
+  personModal.modal({ show: false });
 
-    $('#addTeamButton').click(function() {
-        var name = $('#name').val();
-        var roles = $('#roles').val().split(",");
-        var team_id = $('#teamId').val();
+  $('#closeAddPersonModal').trigger('click');
+};
 
-        if(team_id != ""){
-            var cards = $('#' + team_id).find("div.card");
+function addTeam() {
+    var name = $('#name').val();
+    var roles = $('#roles').val().split(",");
+    var team_id = $('#teamId').val();
+
+    var team = {
+        "name":name,
+        "roles": roles
+    }
+
+    if(team_id != "") {
+        var cards = $('#' + team_id).find("div.card");
+        if(cards.length > 0) {
+          var proceed = confirm("The Current Team contains " + cards.length +" cards on it, applying this changes will remove every single card from it, Do you want to proceed ?");
+          if(proceed) {
             $(cards).each(function(index, item){
                 $(item).appendTo("#peopleDiv");
             });
-            $('#' + team_id).remove();
+            $('#' + team_id).html(teaming.renderTeamTemplate(team, team_id));
+          }
+        } else {
+          $('#' + team_id).find(".team-name").html(name);
         }
+    } else {
+      teaming.addNewTeam(team);
+    }
+    $('#closeAddTeamModal').trigger('click');
+};
 
-        var team = {
-            "name":name,
-            "roles": roles
-        }
-        teaming.addNewTeam(team);
-        
-        $('#closeAddTeamModal').trigger('click');
-        
-    })
-
-    $("a.add-team").click(function () {
-      var teamModal = $("#teamModal");
-
-      $('#name', teamModal).val("");
-      $('#roles', teamModal).val("");
-      $('#teamId', teamModal).val("");
-
-      $('#myModalLabel', teamModal).html("Add Team");
-      $('#addTeamButton', teamModal).html("Add Team");
-    });
+$(window).load(function(){
+  teaming.renderTeams();
+  teaming.renderPeople();
+  restoreScenarios();
 });
 
 function allowDrop(ev) {
@@ -390,4 +405,45 @@ function drop(ev, el) {
   if($(el).attr('id') == "peopleDiv" || el.children.length == 0){
     el.appendChild(document.getElementById(data));
   }
+}
+
+function saveScenario() {
+  var id = "scenario_" + guid();
+  $('#scenariosContainer').append(teaming.renderScenarioTemplate(id));
+  storeState(id);
+}
+
+function restoreScenarios() {
+  $("#scenariosContainer").html(sessionStorage.getItem("scenariosContainer"));
+}
+
+function storeState(id) {
+  sessionStorage.setItem(id, $("#body").html());
+  sessionStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+}
+
+function restoreState(id) {
+  $("#body").html(sessionStorage.getItem(id));
+  restoreScenarios();
+}
+
+function deleteAll() {
+  sessionStorage.clear();
+  location.reload();
+}
+
+function deleteState(id) {
+  $("#" + id).remove();
+  sessionStorage.removeItem(id);
+  sessionStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+}
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
 }
