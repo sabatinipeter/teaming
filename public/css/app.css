@@ -97,6 +97,10 @@ a, a:hover, a:focus {
   height: 200px;
 }
 
+.card .close{
+  margin: -10px -7px; color: black;
+}
+
 .bench .card {
   margin: 0px 10px 10px 0px;
 }
