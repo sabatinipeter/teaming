@@ -414,28 +414,28 @@ function saveScenario() {
 }
 
 function restoreScenarios() {
-  $("#scenariosContainer").html(sessionStorage.getItem("scenariosContainer"));
+  $("#scenariosContainer").html(localStorage.getItem("scenariosContainer"));
 }
 
 function storeState(id) {
-  sessionStorage.setItem(id, $("#body").html());
-  sessionStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+  localStorage.setItem(id, $("#body").html());
+  localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
 }
 
 function restoreState(id) {
-  $("#body").html(sessionStorage.getItem(id));
+  $("#body").html(localStorage.getItem(id));
   restoreScenarios();
 }
 
 function deleteAll() {
-  sessionStorage.clear();
+  localStorage.clear();
   location.reload();
 }
 
 function deleteState(id) {
   $("#" + id).remove();
-  sessionStorage.removeItem(id);
-  sessionStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+  localStorage.removeItem(id);
+  localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
 }
 
 function guid() {
