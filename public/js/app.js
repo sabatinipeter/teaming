@@ -454,11 +454,12 @@ function restoreState(id) {
 }
 
 function deleteAll() {
-  var proceed = confirm("Are you sure to delete all scenarios?");
-  if(proceed) {
+  // var proceed = confirm("Are you sure to delete all scenarios?");
+  // if(proceed) {
     localStorage.clear();
     location.reload();
-  }
+    $('#closeConfirmDeleteModal').trigger('click');
+  // }
 }
 
 function deleteState(id) {
