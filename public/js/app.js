@@ -454,3 +454,12 @@ function guid() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 }
+
+function deleteTeam(id){
+    $("#" + id).remove();
+}
+
+function deletePerson(id){
+    $("#" + id).remove();
+}
+

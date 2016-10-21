@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Teaming</title>
+    <title>Ponyak</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,9 @@
 
     <script id="personTemplate" type="x-tmpl-mustache">
       <div id="{{ id }}" class="card text-center textFilter-target " draggable="true" ondragstart="drag(event)">
+        <button  class="close" onclick="deleteTeam('{{ id }}')">
+          <span aria-hidden="true">×</span>
+        </button>
         <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
         <div class="caption">
             <h5 class="textFilter-match">
@@ -32,7 +35,10 @@
       <div class="team" id="{{ id }}" >
         <div class="panel panel-info" >
             <div class="panel-heading">
-              <h3 class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="editTeam('{{ id }}')">{{ teamName }}</a></h3>
+              <h3 style="display: inline-block;" class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="editTeam('{{ id }}')">{{ teamName }}</a></h3>
+              <button  class="close" onclick="deleteTeam('{{ id }}')">
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
             <div id="newTeamDiv" class="team-container panel-body" >
               {{#roles}}
@@ -66,7 +72,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-tree-deciduous white"></span> Teaming</a>
+          <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-tree-deciduous white"></span> Ponyak</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
