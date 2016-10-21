@@ -1,8 +1,11 @@
 var express = require('express');
+var basicAuth = require('basic-auth-connect');
 var app = express();
 var path    = require("path");
 
+
 app.use('/', express.static(__dirname + '/public/'))
+app.use(basicAuth('pillarAdmin', 'p1ll4r'));
 
 app.get('/', function (req, res) {
      res.sendFile(path.join(__dirname+'/index.html'));

@@ -14,7 +14,6 @@
   "author": "peter-sabatini, ben-tidman",
   "license": "dollabills",
   "dependencies": {
-    "express": "^4.14.0",
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
     "@angular/core": "2.0.0",
@@ -23,14 +22,17 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
+    "basic-auth-connect": "^1.0.0",
+    "express": "^4.14.0",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.23"
+    "zone.js": "^0.6.23",
+    "draggabilly": "^2.1.1",
+    "packery": "^2.1.1"
   },
   "engines": {
     "node": "4.1.1"
   },
   "devDependencies": {
-    "draggabilly": "^2.1.1",
-    "packery": "^2.1.1"
+    
   }
 }
