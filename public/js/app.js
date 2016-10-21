@@ -402,7 +402,6 @@ $(window).load(function(){
     teaming.renderTeams();
     teaming.renderPeople();
     restoreScenarios();
-    
 
     setupDragAndDrop();
 });
@@ -415,17 +414,17 @@ function setupDragAndDrop() {
     });
 
     $grid.find('.team').each( function( i, gridItem ) {
-        var draggie = new Draggabilly( gridItem );
+        var draggie = new Draggabilly( gridItem);
         // bind drag events to Packery
         $grid.packery( 'bindDraggabillyEvents', draggie );
     });
-    
-  $( "#scenariosContainer" ).sortable({
-    update: function() {
-      saveScenariosContainerState();
-    }
-  });
-  $( "#scenariosContainer" ).disableSelection();
+
+    $( "#scenariosContainer" ).sortable({
+        update: function() {
+        saveScenariosContainerState();
+        }
+    });
+    $( "#scenariosContainer" ).disableSelection();
 }
 
 function allowDrop(ev) {

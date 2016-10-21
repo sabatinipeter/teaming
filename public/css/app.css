@@ -139,6 +139,7 @@ a, a:hover, a:focus {
   display: none;
 }
 
+
 /* Scenario
 -------------------------------------------------- */
 
@@ -159,7 +160,7 @@ a, a:hover, a:focus {
 .team {
   min-width:200px;
   width:32%;
-  margin-right:15px;
+  margin-bottom: -21px;
 }
 
 .team-role{
