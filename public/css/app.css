@@ -97,8 +97,13 @@ a, a:hover, a:focus {
   height: 200px;
 }
 
+.card:hover .close {
+  display: block;
+}
+
 .card .close{
   margin: -10px -7px; color: black;
+  display:none;
 }
 
 .bench .card {
@@ -132,6 +137,21 @@ a, a:hover, a:focus {
 
 .bench .opaque {
   display: none;
+}
+
+/* Scenario
+-------------------------------------------------- */
+
+.scenario {
+  border-bottom: 1px dotted grey;
+  /*margin-bottom: 5px;*/
+  padding: 4px 8px;
+}
+.scenario:hover {
+  background-color: lightgrey;
+  /*border: 1px dotted grey;*/
+  /*margin-bottom: 5px;*/
+  /*padding: 4px 8px;*/
 }
 
 /* Team

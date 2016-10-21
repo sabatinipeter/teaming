@@ -385,7 +385,7 @@ function addTeam() {
           var proceed = confirm("The Current Team contains " + cards.length +" cards on it, applying this changes will remove every single card from it, Do you want to proceed ?");
           if(proceed) {
             $(cards).each(function(index, item){
-                $(item).appendTo("#peopleDiv");
+              $(item).appendTo("#peopleDiv");
             });
             $('#' + team_id).html(teaming.renderTeamTemplate(team, team_id));
           }
@@ -399,10 +399,9 @@ function addTeam() {
 };
 
 $(window).load(function(){
-  teaming.renderTeams();
-  teaming.renderPeople();
-  restoreScenarios();
-
+    teaming.renderTeams();
+    teaming.renderPeople();
+    restoreScenarios();
     var $grid = $('.grid').packery({
         // options
         itemSelector: '.team',
@@ -414,7 +413,18 @@ $(window).load(function(){
         // bind drag events to Packery
         $grid.packery( 'bindDraggabillyEvents', draggie );
     });
+
+    setupDragAndDrop();
 });
+
+function setupDragAndDrop() {
+  $( "#scenariosContainer" ).sortable({
+    update: function() {
+      saveScenariosContainerState();
+    }
+  });
+  $( "#scenariosContainer" ).disableSelection();
+}
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -444,11 +454,13 @@ function saveScenario() {
 
 function restoreScenarios() {
   $("#scenariosContainer").html(localStorage.getItem("scenariosContainer"));
+
+  setupDragAndDrop();
 }
 
 function storeState(id) {
   localStorage.setItem(id, $("#body").html());
-  localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+  saveScenariosContainerState();
 }
 
 function restoreState(id) {
@@ -457,13 +469,23 @@ function restoreState(id) {
 }
 
 function deleteAll() {
-  localStorage.clear();
-  location.reload();
+  var proceed = confirm("Are you sure to delete all scenarios?");
+  if(proceed) {
+    localStorage.clear();
+    location.reload();
+  }
 }
 
 function deleteState(id) {
-  $("#" + id).remove();
-  localStorage.removeItem(id);
+  var proceed = confirm("Are you sure to delete this item?");
+  if(proceed) {
+    $("#" + id).remove();
+    localStorage.removeItem(id);
+    saveScenariosContainerState();
+  }
+}
+
+function saveScenariosContainerState() {
   localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
 }
 
@@ -476,10 +498,20 @@ function guid() {
 }
 
 function deleteTeam(id){
+  var proceed = confirm("Are you sure to delete this item?");
+  if(proceed) {
+    var cards = $('#' + id).find("div.card");
+    $(cards).each(function(index, item){
+      $(item).appendTo("#peopleDiv");
+    });
+
     $("#" + id).remove();
+  }
 }
 
 function deletePerson(id){
+  var proceed = confirm("Are you sure to delete this item?");
+  if(proceed) {
     $("#" + id).remove();
+  }
 }
-
