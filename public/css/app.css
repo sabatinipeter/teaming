@@ -130,6 +130,21 @@ a, a:hover, a:focus {
   display: none;
 }
 
+/* Scenario
+-------------------------------------------------- */
+
+.scenario {
+  border-bottom: 1px dotted grey;
+  /*margin-bottom: 5px;*/
+  padding: 4px 8px;
+}
+.scenario:hover {
+  background-color: lightgrey;
+  /*border: 1px dotted grey;*/
+  /*margin-bottom: 5px;*/
+  /*padding: 4px 8px;*/
+}
+
 /* Team
 -------------------------------------------------- */
 .team {

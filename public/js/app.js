@@ -394,7 +394,17 @@ $(window).load(function(){
   teaming.renderTeams();
   teaming.renderPeople();
   restoreScenarios();
+  setupDragAndDrop();
 });
+
+function setupDragAndDrop() {
+  $( "#scenariosContainer" ).sortable({
+    update: function() {
+      saveScenariosContainerState();
+    }
+  });
+  $( "#scenariosContainer" ).disableSelection();
+}
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -424,11 +434,13 @@ function saveScenario() {
 
 function restoreScenarios() {
   $("#scenariosContainer").html(localStorage.getItem("scenariosContainer"));
+
+  setupDragAndDrop();
 }
 
 function storeState(id) {
   localStorage.setItem(id, $("#body").html());
-  localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
+  saveScenariosContainerState();
 }
 
 function restoreState(id) {
@@ -444,6 +456,10 @@ function deleteAll() {
 function deleteState(id) {
   $("#" + id).remove();
   localStorage.removeItem(id);
+  saveScenariosContainerState();
+}
+
+function saveScenariosContainerState() {
   localStorage.setItem("scenariosContainer", $("#scenariosContainer").html());
 }
 

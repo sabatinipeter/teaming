@@ -47,11 +47,14 @@
     </script>
 
     <script id="scenarioTemplate" type="x-tmpl-mustache">
-      <div id="{{ id }}" >
-        <div>
-          <a href="#" onclick="restoreState('{{id}}')">{{ scenarioName }}</a>
-          <a href="#" onclick="deleteState('{{id}}')"><span class="glyphicon glyphicon-remove red"></span></a>
-        </div>
+      <div id="{{ id }}" class="scenario">
+        <a href="#" onclick="restoreState('{{id}}')">{{ scenarioName }}</a>
+
+        <button class="close" type="button" onclick="deleteState('{{id}}')" style="color:black;">
+          <span aria-hidden="true">×</span>
+        </button>
+
+      </div>
     </script>
   </head>
 
@@ -104,8 +107,8 @@
               <h3 class="panel-title">Scenarios</h3>
             </div>
             <div class="panel-body">
-              <a href="#" onclick="deleteAll()">Clear Session</a>
-              <div id="scenariosContainer"></div>
+              <a href="#" onclick="deleteAll()" class="pull-right">Clear Session</a>
+              <div id="scenariosContainer" style="clear:both;"></div>
             </div>
           </div>
 
@@ -233,8 +236,9 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-
+    
     <!-- Underscore -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
