@@ -269,11 +269,11 @@ teaming.renderTeamTemplate = function(team, id) {
     return Mustache.render(template, {id: "team" + id, teamName: team.name, roles: team.roles});
 };
 
-teaming.renderScenarioTemplate = function(id) {
+teaming.renderScenarioTemplate = function(id, name) {
     var template = $('#scenarioTemplate').html();
     Mustache.parse(template);
 
-    return Mustache.render(template, {id: id});
+    return Mustache.render(template, {id: id, scenarioName: name});
 };
 
 function editPerson (id) {
@@ -303,6 +303,11 @@ function editTeam(id) {
 
     $('#myModalLabel', teamModal).html("Edit Team");
     $('#addTeamButton', teamModal).html("Save");
+};
+
+function popScenarioModal() {
+  var scenarioModal = $("#scenarioModal");
+  $('#scenario-name', scenarioModal).val("");
 };
 
 function addPersonModal() {
@@ -409,8 +414,12 @@ function drop(ev, el) {
 
 function saveScenario() {
   var id = "scenario_" + guid();
-  $('#scenariosContainer').append(teaming.renderScenarioTemplate(id));
+
+  var scenarioName = $('#scenario-name').val();
+
+  $('#scenariosContainer').append(teaming.renderScenarioTemplate(id, scenarioName));
   storeState(id);
+  $('#closeScenarioModal').trigger('click');
 }
 
 function restoreScenarios() {
@@ -440,9 +449,7 @@ function deleteState(id) {
 
 function guid() {
   function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
