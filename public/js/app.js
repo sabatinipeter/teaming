@@ -402,6 +402,12 @@ $(window).load(function(){
     teaming.renderTeams();
     teaming.renderPeople();
     restoreScenarios();
+    
+
+    setupDragAndDrop();
+});
+
+function setupDragAndDrop() {
     var $grid = $('.grid').packery({
         // options
         itemSelector: '.team',
@@ -413,11 +419,7 @@ $(window).load(function(){
         // bind drag events to Packery
         $grid.packery( 'bindDraggabillyEvents', draggie );
     });
-
-    setupDragAndDrop();
-});
-
-function setupDragAndDrop() {
+    
   $( "#scenariosContainer" ).sortable({
     update: function() {
       saveScenariosContainerState();
