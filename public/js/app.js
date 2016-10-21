@@ -232,8 +232,14 @@ teaming.addNewPerson = function(person) {
 };
 
 teaming.addNewTeam = function(team) {
-    $('#teamDiv').append(teaming.renderTeamTemplate(team, guid()));
-}
+    
+    var item = teaming.renderTeamTemplate(team, guid()); 
+    var $item = $(item);
+    $('#teamDiv').append($item).packery('appended', $item)   
+
+    var draggie = new Draggabilly( $item[0] );
+    $('#teamDiv').packery( 'bindDraggabillyEvents', draggie );
+};
 
 teaming.renderPeople = function () {
     teaming.renderItems('#peopleDiv', teaming.people, teaming.renderPersonTemplate);
@@ -275,6 +281,8 @@ teaming.renderScenarioTemplate = function(id, name) {
 
     return Mustache.render(template, {id: id, scenarioName: name});
 };
+
+
 
 function editPerson (id) {
     var personModal = $("#personModal");
@@ -385,7 +393,7 @@ function addTeam() {
           $('#' + team_id).find(".team-name").html(name);
         }
     } else {
-      teaming.addNewTeam(team);
+        teaming.addNewTeam(team);
     }
     $('#closeAddTeamModal').trigger('click');
 };
@@ -394,6 +402,18 @@ $(window).load(function(){
   teaming.renderTeams();
   teaming.renderPeople();
   restoreScenarios();
+
+    var $grid = $('.grid').packery({
+        // options
+        itemSelector: '.team',
+        gutter: 10
+    });
+
+    $grid.find('.team').each( function( i, gridItem ) {
+        var draggie = new Draggabilly( gridItem );
+        // bind drag events to Packery
+        $grid.packery( 'bindDraggabillyEvents', draggie );
+    });
 });
 
 function allowDrop(ev) {
