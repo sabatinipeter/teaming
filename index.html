@@ -17,7 +17,7 @@
 
     <script id="personTemplate" type="x-tmpl-mustache">
       <div id="{{ id }}" class="card text-center textFilter-target " draggable="true" ondragstart="drag(event)">
-        <button  class="close" onclick="deleteTeam('{{ id }}')">
+        <button  class="close" data-href="deletePerson('{{ id }}')" data-toggle="modal" data-target="#confirm-delete">
           <span aria-hidden="true">×</span>
         </button>
         <img class="img-circle profile-img " src="{{ img }}" alt="" draggable="false">
@@ -36,7 +36,7 @@
         <div class="panel panel-info" >
             <div class="panel-heading">
               <h3 style="display: inline-block;" class="panel-title"><a class="edit-team team-name" href="#" data-toggle="modal" data-target="#teamModal" onclick="editTeam('{{ id }}')">{{ teamName }}</a></h3>
-              <button  class="close" onclick="deleteTeam('{{ id }}')">
+              <button  class="close" data-href="deleteTeam('{{ id }}')" data-toggle="modal" data-target="#confirm-delete">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
@@ -56,7 +56,7 @@
       <div id="{{ id }}" class="scenario">
         <a href="#" onclick="restoreState('{{id}}')">{{ scenarioName }}</a>
 
-        <button class="close" type="button" onclick="deleteState('{{id}}')" style="color:black;">
+        <button class="close" type="button" data-href="deleteState('{{id}}')" data-toggle="modal" data-target="#confirm-delete" style="color:black;">
           <span aria-hidden="true">×</span>
         </button>
 
@@ -238,6 +238,29 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" id="closeConfirmDeleteModal" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>You are about to delete this item, this procedure is irreversible.</p>
+                    <p>Do you want to proceed?</p>
+                    <p class="debug-url"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-ok">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery -->

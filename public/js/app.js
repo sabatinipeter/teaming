@@ -393,6 +393,11 @@ function addTeam() {
 $(window).load(function(){
   teaming.renderTeams();
   teaming.renderPeople();
+
+  $('#confirm-delete').on('show.bs.modal', function(e) {
+      $(this).find('.btn-ok').attr('onclick', $(e.relatedTarget).data('href'));
+  });
+
   restoreScenarios();
   setupDragAndDrop();
 });
@@ -457,12 +462,10 @@ function deleteAll() {
 }
 
 function deleteState(id) {
-  var proceed = confirm("Are you sure to delete this item?");
-  if(proceed) {
-    $("#" + id).remove();
-    localStorage.removeItem(id);
-    saveScenariosContainerState();
-  }
+  $("#" + id).remove();
+  localStorage.removeItem(id);
+  saveScenariosContainerState();
+  $('#closeConfirmDeleteModal').trigger('click');
 }
 
 function saveScenariosContainerState() {
@@ -478,20 +481,16 @@ function guid() {
 }
 
 function deleteTeam(id){
-  var proceed = confirm("Are you sure to delete this item?");
-  if(proceed) {
-    var cards = $('#' + id).find("div.card");
-    $(cards).each(function(index, item){
-      $(item).appendTo("#peopleDiv");
-    });
+  var cards = $('#' + id).find("div.card");
+  $(cards).each(function(index, item){
+    $(item).appendTo("#peopleDiv");
+  });
 
-    $("#" + id).remove();
-  }
+  $("#" + id).remove();
+  $('#closeConfirmDeleteModal').trigger('click');
 }
 
 function deletePerson(id){
-  var proceed = confirm("Are you sure to delete this item?");
-  if(proceed) {
-    $("#" + id).remove();
-  }
+  $("#" + id).remove();
+  $('#closeConfirmDeleteModal').trigger('click');
 }
