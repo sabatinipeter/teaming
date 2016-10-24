@@ -160,7 +160,10 @@ a, a:hover, a:focus {
 .team {
   min-width:200px;
   width:32%;
-  margin-bottom: -21px;
+  padding-right:7px;
+  padding-left:7px;
+  display:inline-block;  
+  vertical-align:top;
 }
 
 .team-role{

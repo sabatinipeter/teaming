@@ -25,14 +25,10 @@
     "basic-auth-connect": "^1.0.0",
     "express": "^4.14.0",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.23",
-    "draggabilly": "^2.1.1",
-    "packery": "^2.1.1"
+    "zone.js": "^0.6.23"
   },
   "engines": {
     "node": "4.1.1"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

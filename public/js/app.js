@@ -235,10 +235,14 @@ teaming.addNewTeam = function(team) {
     
     var item = teaming.renderTeamTemplate(team, guid()); 
     var $item = $(item);
-    $('#teamDiv').append($item).packery('appended', $item)   
-
-    var draggie = new Draggabilly( $item[0] );
-    $('#teamDiv').packery( 'bindDraggabillyEvents', draggie );
+    $('#teamDiv').append($item);  
+    $item.draggable({ 
+        scroll: true, 
+        handle: ".handle",
+        snap: ".team", 
+        snapMode: "outer",
+        containment: "#teamDiv"
+     });
 };
 
 teaming.renderPeople = function () {
@@ -407,16 +411,12 @@ $(window).load(function(){
 });
 
 function setupDragAndDrop() {
-    var $grid = $('.grid').packery({
-        // options
-        itemSelector: '.team',
-        gutter: 10
-    });
-
-    $grid.find('.team').each( function( i, gridItem ) {
-        var draggie = new Draggabilly( gridItem);
-        // bind drag events to Packery
-        $grid.packery( 'bindDraggabillyEvents', draggie );
+    $( ".team" ).draggable({ 
+        scroll: true, 
+        handle: ".handle",
+        snap: ".team", 
+        snapMode: "outer",
+        containment: "#teamDiv"
     });
 
     $( "#scenariosContainer" ).sortable({
