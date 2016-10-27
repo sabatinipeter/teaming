@@ -373,16 +373,12 @@ function addTeam() {
 
     if(team_id != "") {
         var cards = $('#' + team_id).find("div.card");
-        if(cards.length > 0) {
-          var proceed = confirm("The Current Team contains " + cards.length +" cards on it, applying this changes will remove every single card from it, Do you want to proceed ?");
-          if(proceed) {
+        var proceed = confirm("This changes will remove every person from the team. Do you want to proceed?");
+        if(proceed) {
             $(cards).each(function(index, item){
-              $(item).appendTo("#peopleDiv");
+                $(item).appendTo("#peopleDiv");
             });
             $('#' + team_id).html(teaming.renderTeamTemplate(team, team_id));
-          }
-        } else {
-          $('#' + team_id).find(".team-name").html(name);
         }
     } else {
       teaming.addNewTeam(team);
