@@ -250,17 +250,17 @@ teaming.people = [{
         "notes":  ""
     },{
         "name": "Charlie Snider",
-        "image": "images/CharlesSnider.png",
+        "image": "images/charlessnider.png",
         "position": "Delivery Lead",
         "notes":  ""
     },{
         "name": "Cheryl Smith",
-        "image": "images/CherylSmith.jpg",
+        "image": "images/cherylsmith.jpg",
         "position": "Delivery Lead",
         "notes":  ""
     },{
         "name": "Chris Baker",
-        "image": "images/ChrisBaker.jpg",
+        "image": "images/chrisbaker.jpg",
         "position": "Software Craftsman",
         "notes":  ""
     },{
@@ -330,7 +330,7 @@ teaming.people = [{
         "notes":  ""
     },{
         "name": "Jason Waack",
-        "image": "images/JasonWaack.jpg",
+        "image": "images/jasonwaack.jpg",
         "position": "Executive Consultant",
         "notes":  ""
     },{
