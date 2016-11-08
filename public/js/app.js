@@ -390,7 +390,7 @@ teaming.people = [{
         "notes":  ""
     },{
         "name": "Nate Dubetz",
-        "image": "images/NateDubetz.png",
+        "image": "images/natedubetz.png",
         "position": "Software Journeyman",
         "notes":  ""
     },{
