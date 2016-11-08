@@ -218,7 +218,242 @@ teaming.people = [{
       "image": "images/willgibbins.jpg",
       "position": "Delivery Lead",
       "notes": "beard"
-  }
+  },{
+      "name": "Adam Crane",
+      "image": "images/AdamCranePhoto.jpg",
+      "position": "Software Journeyman",
+      "notes":  ""
+    },{
+        "name": "Andrew Howard",
+        "image": "images/new.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Aravind Balasubramanian",
+        "image": "images/Aravind.jpg",
+        "position": "Executive Consultant",
+        "notes":  ""
+    },{
+        "name": "Bobby Baker",
+        "image": "images/bobBrick.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Brandon Zeeb",
+        "image": "images/BrandonZeeb.jpg",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Butch Howard",
+        "image": "images/ButchHoward.jpg",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Charlie Snider",
+        "image": "images/CharlesSnider.png",
+        "position": "Delivery Lead",
+        "notes":  ""
+    },{
+        "name": "Cheryl Smith",
+        "image": "images/CherylSmith.jpg",
+        "position": "Delivery Lead",
+        "notes":  ""
+    },{
+        "name": "Chris Baker",
+        "image": "images/ChrisBaker.jpg",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Chris Bernholt",
+        "image": "images/ChrisBernholt.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Connor Sweeney",
+        "image": "images/ConnorSweeney.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "DJ Daugherty",
+        "image": "images/djdaugherty.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Dan Wiebe",
+        "image": "images/new.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Daniel Wagers",
+        "image": "images/DanWagers.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "David Kaye",
+        "image": "images/davidkaye.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "David Nippa",
+        "image": "images/DavidNippa.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "David Weirich",
+        "image": "images/DavidWeirich.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Derek Nixon",
+        "image": "images/DerekNixon.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Dicko Sow",
+        "image": "images/DickoSow.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Drew Keller",
+        "image": "images/drewkeller.jpg",
+        "position": "Software Apprentice",
+        "notes":  ""
+    },{
+        "name": "Hugo Fernandez",
+        "image": "images/new.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "JD Sallee",
+        "image": "images/JDsalle.png",
+        "position": "Strategy Vanguard",
+        "notes":  ""
+    },{
+        "name": "Jason Waack",
+        "image": "images/JasonWaack.jpg",
+        "position": "Executive Consultant",
+        "notes":  ""
+    },{
+        "name": "Jennifer Kron",
+        "image": "images/jenniferkron.jpg",
+        "position": "Software Apprentice",
+        "notes":  ""
+    },{
+        "name": "Jim Holmes",
+        "image": "images/JimHolmes.jpg",
+        "position": "Executive Consultant",
+        "notes":  ""
+    },{
+        "name": "Joe Gilsenan",
+        "image": "images/new.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "John Gartee",
+        "image": "images/johngartee.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Justin Fitins",
+        "image": "images/new.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Kristen Smith",
+        "image": "images/kristensmith.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Lyman Gillespie",
+        "image": "images/LymanGillispie.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Magnus Stahre",
+        "image": "images/MagnusStahre.jpg",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Mark Holtman",
+        "image": "images/MarkHoltman.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Mark Vertido",
+        "image": "images/new.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Matt Manger",
+        "image": "images/MattManger.png",
+        "position": "Delivery Lead",
+        "notes":  ""
+    },{
+        "name": "Nate Dubetz",
+        "image": "images/NateDubetz.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Nathan Bradshaw",
+        "image": "images/nbradshaw.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Nathan Carver",
+        "image": "images/nathancarver.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Ovi Sofariu",
+        "image": "images/ovisofariu.png",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Paul Schwendenman",
+        "image": "images/PaulSchwendenman.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Rick Ucker",
+        "image": "images/RickUcker.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    },{
+        "name": "Rob Conaway",
+        "image": "images/robconaway.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Rob Hermance-Moore",
+        "image": "images/robhermancemoore.png",
+        "position": "Deliver Lead",
+        "notes":  ""
+    },{
+        "name": "Rob Huston",
+        "image": "images/robhuston.jpg",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Ruben Ojeda",
+        "image": "images/rubenojeda.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Schonne Eldridge",
+        "image": "images/SchonneEldridge.jpg",
+        "position": "Experience Designer",
+        "notes":  ""
+    },{
+        "name": "William Guynes",
+        "image": "images/williamguynes.png",
+        "position": "Software Craftsman",
+        "notes":  ""
+    },{
+        "name": "Zach Brown",
+        "image": "images/ZachBrown.jpg",
+        "position": "Software Journeyman",
+        "notes":  ""
+    }
 ];
 
 teaming.newPerson = {
