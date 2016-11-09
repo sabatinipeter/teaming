@@ -2,41 +2,8 @@ var teaming = {};
 
 teaming.teams = [
     {
-        "name":"Route One Desking",
-        "roles":["DL", "Dev", "Dev"]
-    },
-    {
-        "name":"Route One Menu",
-        "roles":["DL", "DL", "Dev", "Dev", "Dev", "Dev", "Apr"]
-    },
-    {
-        "name":"ACSI",
-        "roles":["DL", "TL", "Dev", "Dev", "Dev", "Dev", "Dev","Dev", "XD", "XD"]
-    },
-    {
-        "name":"JIS",
-        "roles":["DM", "DL", "DL", "TL", "Dev", "Dev", "Dev", "Dev", "Dev", "Dev", "Dev", "XD"]
-    },
-    {
-        "name":"Ford - FMCC",
-        "roles":["DM", "DL", "Dev", "Dev", "Dev", "1/2 Dev"]
-    },
-    {
-        "name":"Ford - GForce",
-        "roles":["DM", "DL", "TL", "BA", "Dev", "Dev", "Dev", "1/2 Dev", "1/2 Dev"]
-    },
-    {
-        "name":"Ford - Agile COE",
-        "roles":["Other", "Other", "Other"]
-
-    },
-    {
-        "name":"Ford - Falcon",
-        "roles":["DL", "Dev", "Dev", "Dev"]
-    },
-    {
-        "name":"Ford - PDO",
-        "roles":["Other", "Other"]
+        "name":"Sample Team",
+        "roles":["DL", "TL", "Dev", "Dev", "Dev", "XA", "XD"]
     }
     ];
 
@@ -725,4 +692,43 @@ function deleteTeam(id){
 function deletePerson(id){
   $("#" + id).remove();
   $('#closeConfirmDeleteModal').trigger('click');
+}
+
+function saveExportFile(){
+    var blob = new Blob([JSON.stringify(localStorage)], {type: 'application/json;charset=utf-8'});
+    saveAs(blob, 'export.ponyak');
+}
+
+function clearAllData(){
+    if (confirm('This will clear all data from your current session. Are you sure?')) {
+        loadApplicationState({});
+    }
+}
+
+function loadApplicationState(newData) {
+    localStorage.clear();
+    newData = newData || {};
+    Object.keys(newData).forEach(function(key){
+        var value = newData[key];
+        localStorage.setItem(key, value);
+    });
+    location.reload();
+}
+
+function importFromFile(input){
+    if (input.files && input.files[0]) {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event){
+            var contents = event.target.result;
+            var data = JSON.parse(contents);
+            console.log(data);
+            loadApplicationState(data);
+        };
+        reader.readAsText(file);
+    }
+}
+
+function promptForFile(){
+    $('#file').click();
 }

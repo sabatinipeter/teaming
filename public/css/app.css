@@ -43,6 +43,13 @@ a, a:hover, a:focus {
   margin-right:15px;
 }
 
+#file {
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
 /* Sidebar
 -------------------------------------------------- */
 
