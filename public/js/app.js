@@ -726,3 +726,42 @@ function deletePerson(id){
   $("#" + id).remove();
   $('#closeConfirmDeleteModal').trigger('click');
 }
+
+function saveExportFile(){
+    var blob = new Blob([JSON.stringify(localStorage)], {type: 'application/json;charset=utf-8'});
+    saveAs(blob, 'export.ponyak');
+}
+
+function clearAllData(){
+    if (confirm('This will clear all data from your current session. Are you sure?')) {
+        loadApplicationState({});
+    }
+}
+
+function loadApplicationState(newData) {
+    localStorage.clear();
+    newData = newData || {};
+    Object.keys(newData).forEach(function(key){
+        var value = newData[key];
+        localStorage.setItem(key, value);
+    });
+    location.reload();
+}
+
+function importFromFile(input){
+    if (input.files && input.files[0]) {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event){
+            var contents = event.target.result;
+            var data = JSON.parse(contents);
+            console.log(data);
+            loadApplicationState(data);
+        };
+        reader.readAsText(file);
+    }
+}
+
+function promptForFile(){
+    $('#file').click();
+}
