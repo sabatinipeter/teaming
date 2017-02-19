@@ -1,6 +1,7 @@
 body {
   padding-top: 70px;
   font-family: "Roboto";
+  font-weight: 200;
 }
 
 .peter {
@@ -68,34 +69,57 @@ body {
   width: 33px;
 }
 
+.top > div {
+  display: inline-block;
+  height: 66px;
+}
+
+[class^="region-"] {
+  background-size: contain;
+  height: 66px;
+  width: 66px;
+}
+
+.region-michigan {
+  background-image: url("../images/dashboard/white_MI.png");
+}
+.region-ohio {
+  background-image: url("../images/dashboard/white_OH.png");
+}
+.region-iowa {
+  background-image: url("../images/dashboard/white_IA.png");
+}
+.region-california {
+  background-image: url("../images/dashboard/white_CA.png");
+}
+
 [class^="font-"] {
   vertical-align: bottom;
-  font-weight: 200;
 }
 
 .font-56 {
   font-size: 56px;
-  line-height: 60px;
-  padding: 0 10px;
+  line-height: 62px;
+  margin-right: 10px;
+}
+
+[class^="arrow-"] {
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 18px;
+  height: 66px;
+}
+
+.arrow-green {
+  background-image: url("../images/dashboard/u53.png");
+}
+
+.up {
+  transform: rotate(217deg);
 }
 
 .font-24 {
   font-size: 24px;
   line-height: 42px;
   padding: 0 5px;
-}
-
-.arrow {
-  transform: rotate(217deg);
-}
-
-.description {
-  font-size: 16px;
-  font-weight: 200;
-  padding-top: 5px;
-}
-
-.description-2 {
-  font-size: 16px;
-  font-weight: 200;
 }
