@@ -1,0 +1,101 @@
+body {
+  padding-top: 70px;
+  font-family: "Roboto";
+}
+
+.peter {
+  display: table;
+  width: 100%;
+  border-spacing: 10px 0px;
+}
+
+.card {
+  border-color: rgba(227, 227, 227, 1);
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 1px 1px 5px rgba(215, 215, 215, 1);
+  height: 214px;
+  width: 406px;
+  margin-right: 10px;
+  display: table-cell;
+}
+
+.blue {
+  background-color: rgb(56,140,255);
+}
+
+.pink {
+  background-color: #EE3B78;
+}
+
+.green {
+  background-color: #63BC66;
+}
+
+.turquoise {
+  background-color: #24AFBC;
+}
+
+.header {
+  height: 129px;
+  padding: 20px 10px 10px;
+  text-align: center;
+  color: white;
+}
+
+.sub-header {
+  height: 83px;
+  padding: 10px;
+  text-align: center;
+  width: 50%;
+  float:left;
+  color: #9a9a9a;
+}
+
+.border-right {
+  border-right: 2px solid #E8E8E8;
+}
+
+.width-65 {
+  width: 65px;
+}
+
+.width-40 {
+  width: 40px;
+}
+
+.width-33 {
+  width: 33px;
+}
+
+[class^="font-"] {
+  vertical-align: bottom;
+  font-weight: 200;
+}
+
+.font-56 {
+  font-size: 56px;
+  line-height: 60px;
+  padding: 0 10px;
+}
+
+.font-24 {
+  font-size: 24px;
+  line-height: 42px;
+  padding: 0 5px;
+}
+
+.arrow {
+  transform: rotate(217deg);
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 200;
+  padding-top: 5px;
+}
+
+.description-2 {
+  font-size: 16px;
+  font-weight: 200;
+}
