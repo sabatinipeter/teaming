@@ -2,6 +2,7 @@ body {
   padding-top: 70px;
   font-family: "Roboto";
   font-weight: 200;
+  background-color: #E8E8E8;
 }
 
 .peter {
@@ -48,13 +49,15 @@ body {
   height: 83px;
   padding: 10px;
   text-align: center;
-  width: 50%;
+  width: 60%;
   float:left;
   color: #9a9a9a;
+  background-color: white;
 }
 
 .border-right {
   border-right: 2px solid #E8E8E8;
+  width: 40%;
 }
 
 .width-65 {
@@ -103,6 +106,12 @@ body {
   margin-right: 10px;
 }
 
+.font-24 {
+  font-size: 20px;
+  line-height: 46px;
+  margin-right: 5px;
+}
+
 [class^="arrow-"] {
   background-repeat: no-repeat;
   background-position: center center;
@@ -118,8 +127,85 @@ body {
   transform: rotate(217deg);
 }
 
-.font-24 {
-  font-size: 24px;
-  line-height: 42px;
-  padding: 0 5px;
+.bottom {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.bottom > div {
+  display: inline-block;
+}
+
+[class^="icon-"] {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 33px;
+  width: 33px;
+}
+
+.icon-bench {
+  background-image: url("../images/dashboard/bench_blue.png");
+}
+
+.icon-clock {
+  background-image: url("../images/dashboard/blue_clock.png");
+  background-position: center center;
+  width: 25px;
+}
+
+[class^="test-"] {
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 9px;
+  height: 33px;
+}
+
+.test-pink {
+  background-image: url("../images/dashboard/u95.png");
+}
+
+.region-header {
+    background-attachment: inherit;
+    background-clip: inherit;
+    background-color: rgba(56, 140, 255, 1);
+    background-image: inherit;
+    background-origin: inherit;
+    background-position: inherit;
+    background-repeat: inherit;
+    background-size: inherit;
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    height: 71px;
+    width: auto;
+    margin: 40px 10px;
+    color: white;
+}
+
+.region-header .title {
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 10px 15px;
+    float: left;
+}
+
+.region-header .link {
+    border-width: 0;
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    height: 33px;
+    width: 235px;
+    float: right;
+}
+
+#u350_img {
+    border-width: 0;
+    height: 33px;
+    width: 235px;
 }
